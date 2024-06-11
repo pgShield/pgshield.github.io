@@ -1,42 +1,48 @@
-<h1>pgShield Documentation</h1>
+    <div id="pgshield-docs">
+        <header>
+            <h1>pgShield Documentation</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#" data-page="installation">Installation</a></li>
+                <li><a href="#" data-page="configuration">Configuration</a></li>
+                <li><a href="#" data-page="optimization">Optimization</a></li>
+                <li><a href="#" data-page="server-gateway">Server Gateway</a></li>
+                <li><a href="#" data-page="rest-api">REST API</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div id="documentation-content"></div>
+        </div>
+    </div>
 
-<nav>
-    <ul>
-        <li><a href="#" data-page="installation">Installation</a></li>
-        <li><a href="#" data-page="configuration">Configuration</a></li>
-        <li><a href="#" data-page="optimization">Optimization</a></li>
-        <li><a href="#" data-page="server-gateway">Server Gateway</a></li>
-        <li><a href="#" data-page="rest-api">REST API</a></li>
-    </ul>
-</nav>
+    
+    <script>
+        $(document).ready(function() {
+            // Load the initial documentation page
+            loadDocumentationPage('installation');
 
-<div id="documentation-content"></div>
-
-<script>
-    $(document).ready(function() {
-        // Load the initial documentation page
-        loadDocumentationPage('installation');
-
-        // Handle navigation menu clicks
-        $('nav ul li a').click(function(e) {
-            e.preventDefault();
-            var page = $(this).data('page');
-            loadDocumentationPage(page);
-        });
-
-        // Function to load documentation page content
-        function loadDocumentationPage(page) {
-            // Load the page content using $.ajax
-            $.ajax({
-                url: 'documentation/' + page + '.html',
-                dataType: 'html',
-                success: function(data) {
-                    $('#documentation-content').html(data);
-                },
-                error: function(xhr, status, error) {
-                    console.log('Error loading page: ' + error);
-                }
+            // Handle navigation menu clicks
+            $('nav ul li a').click(function(e) {
+                e.preventDefault();
+                var page = $(this).data('page');
+                loadDocumentationPage(page);
             });
-        }
-    });
-</script>
+
+            // Function to load documentation page content
+            function loadDocumentationPage(page) {
+                // Load the page content using $.ajax
+                $.ajax({
+                    url: 'documentation/' + page + '.html',
+                    dataType: 'html',
+                    success: function(data) {
+                        $('#documentation-content').html(data);
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Error loading page: ' + error);
+                    }
+                });
+            }
+        });
+    </script>
+
