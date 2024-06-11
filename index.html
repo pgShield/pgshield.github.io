@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pgShield Documentation</title>
+    <title>pgShield - High-Performance PostgreSQL</title>
+    <meta name="description" content="pgShield is a high-performance connection pooling and optimization system for PostgreSQL databases. Enhance your database performance with advanced features like connection pooling, prepared statement caching, and query optimization.">
+    <meta name="keywords" content="pgShield, PostgreSQL, connection pooling, optimization, database performance">
+    <meta name="author" content="Indrit Zeqiri">
+    <link rel="canonical" href="https://pgshield.github.io">
+    <meta property="og:title" content="pgShield - High-Performance PostgreSQL Connection Pooling">
+    <meta property="og:description" content="pgShield is a high-performance connection pooling and optimization system for PostgreSQL databases. Enhance your database performance with advanced features like connection pooling, prepared statement caching, and query optimization.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pgshield.github.io">
+    <meta property="og:image" content="https://pgshield.github.io/pgshield-logo.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="pgShield - High-Performance PostgreSQL Connection Pooling">
+    <meta name="twitter:description" content="pgShield is a high-performance gateway, connection pooling and optimization system for PostgreSQL databases. Enhance your database performance with advanced features like connection pooling, prepared statement caching, and query optimization.">
+    <meta name="twitter:image" content="https://pgshield.github.io/pgshield-logo.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -46,10 +59,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="#" data-page="index">Home</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="documentation.html">Documentation</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="documentation">Documentation</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://github.com/pgshield/pgshield">GitHub</a>
@@ -58,38 +71,30 @@
             </div>
         </div>
     </nav>
-
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="getting-started.html">Getting Started</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="configuration.html">Configuration</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="api-reference.html">API Reference</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="faq.html">FAQ</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 content">
-                <h1>Getting Started</h1>
-                <p>Welcome to the pgShield documentation. This page will guide you through the process of getting started with pgShield.</p>
-                <!-- Add your getting started content here -->
-            </main>
-        </div>
+    <div class="container mt-4" id="content">
     </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Load the initial page content
+            loadPage('index');
+            // Handle menu item clicks
+            $('.navbar-nav .nav-link').click(function(e) {
+                e.preventDefault();
+                var page = $(this).data('page');
+                loadPage(page);
+            });
+            // Function to load page content
+            function loadPage(page) {
+                // Update the active menu item
+                $('.navbar-nav .nav-link').removeClass('active');
+                $('.navbar-nav .nav-link[data-page="' + page + '"]').addClass('active');
+                // Load the page content
+                $('#content').load(page + '.html');
+            }
+        });
+    </script>
 </body>
 </html>
