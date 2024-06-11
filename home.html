@@ -6,14 +6,16 @@
             </div>
             <div class="col-md-8">
                 <h1 class="display-4">Welcome to pgShield</h1>
-                <p class="lead">High-Performance PostgreSQL Connection Pooling and Optimization</p>
+                <p class="lead">High-Performance PostgreSQL Connection Pooling, Optimization, and Server Gateway</p>
                 <hr class="my-4">
-                <p>pgShield is a powerful connection pooling and optimization system designed to enhance the performance and scalability of your PostgreSQL databases. With pgShield, you can:</p>
+                <p>pgShield is a powerful connection pooling, optimization, and server gateway system designed to enhance the performance, scalability, and accessibility of your PostgreSQL databases. With pgShield, you can:</p>
                 <ul>
                     <li>Efficiently manage and reuse database connections</li>
                     <li>Reduce query parsing overhead with prepared statement caching</li>
                     <li>Optimize SQL queries for improved performance</li>
                     <li>Distribute client connections across multiple PostgreSQL servers</li>
+                    <li>Access multiple PostgreSQL servers seamlessly through a unified gateway</li>
+                    <li>Interact with PostgreSQL using native protocols or HTTP REST interfaces</li>
                 </ul>
                 <p>pgShield is built with Rust, ensuring high performance, memory safety, and concurrency. It provides a seamless integration with your existing PostgreSQL infrastructure, allowing you to scale your applications with ease.</p>
                 <a class="btn btn-primary btn-lg" href="#" role="button" data-page="documentation">Get Started</a>
@@ -35,6 +37,20 @@
         <div class="col-md-4">
             <h2>Advanced Query Optimization</h2>
             <p>pgShield analyzes and optimizes SQL queries, identifying performance bottlenecks and applying optimization techniques. It helps in minimizing database load and improving query execution times.</p>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <h2>PostgreSQL Server Gateway</h2>
+            <p>pgShield acts as a gateway to multiple PostgreSQL servers, allowing you to treat them as a single entity. You can access and manage multiple databases through a unified interface, simplifying database administration and application development.</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Native Protocol Support</h2>
+            <p>pgShield supports native PostgreSQL protocols, enabling seamless communication between clients and servers. You can use your existing PostgreSQL client libraries and tools to interact with pgShield, making integration effortless.</p>
+        </div>
+        <div class="col-md-4">
+            <h2>HTTP REST Interfaces</h2>
+            <p>In addition to native protocols, pgShield provides HTTP REST interfaces for interacting with PostgreSQL. You can perform database operations using standard HTTP methods, making it easy to integrate with web applications and services.</p>
         </div>
     </div>
 </div>
