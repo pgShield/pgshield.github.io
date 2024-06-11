@@ -73,28 +73,37 @@
     </nav>
     <div class="container mt-4" id="content">
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function() {
-            // Load the initial page content
-            loadPage('home');
-            // Handle menu item clicks
-            $('.navbar-nav .nav-link').click(function(e) {
-                e.preventDefault();
-                var page = $(this).data('page');
-                loadPage(page);
-            });
-            // Function to load page content
-            function loadPage(page) {
-                // Update the active menu item
-                $('.navbar-nav .nav-link').removeClass('active');
-                $('.navbar-nav .nav-link[data-page="' + page + '"]').addClass('active');
-                // Load the page content
-                $('#content').load(page + '.html');
-            }
+    $(document).ready(function() {
+        // Load the initial page content
+        loadPage('home');
+        // Handle menu item clicks
+        $('.navbar-nav .nav-link').click(function(e) {
+            e.preventDefault();
+            var page = $(this).data('page');
+            loadPage(page);
         });
-    </script>
+        // Function to load page content
+        function loadPage(page) {
+            // Update the active menu item
+            $('.navbar-nav .nav-link').removeClass('active');
+            $('.navbar-nav .nav-link[data-page="' + page + '"]').addClass('active');
+            // Load the page content using $.ajax
+            $.ajax({
+                url: page + '.html',
+                dataType: 'html',
+                success: function(data) {
+                    $('#content').html(data);
+                },
+                error: function(xhr, status, error) {
+                    console.log('Error loading page: ' + error);
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
