@@ -1,42 +1,42 @@
 <h1>pgShield Documentation</h1>
 
-<h2>Building and Installing pgShield</h2>
-<h3>Linux</h3>
-<ol>
-    <li>Clone the pgShield repository:</li>
-    <pre><code>git clone https://github.com/pgshield/pgshield.git</code></pre>
-    <li>Navigate to the pgShield directory:</li>
-    <pre><code>cd pgshield</code></pre>
-    <li>Build pgShield:</li>
-    <pre><code>cargo build --release</code></pre>
-    <li>The compiled binary will be available at <code>target/release/pgshield</code>.</li>
-</ol>
+<nav>
+    <ul>
+        <li><a href="#" data-page="installation">Installation</a></li>
+        <li><a href="#" data-page="configuration">Configuration</a></li>
+        <li><a href="#" data-page="optimization">Optimization</a></li>
+        <li><a href="#" data-page="server-gateway">Server Gateway</a></li>
+        <li><a href="#" data-page="rest-api">REST API</a></li>
+    </ul>
+</nav>
 
-<h3>Windows</h3>
-<ol>
-    <li>Install Rust from <a href="https://www.rust-lang.org/tools/install">https://www.rust-lang.org/tools/install</a>.</li>
-    <li>Clone the pgShield repository:</li>
-    <pre><code>git clone https://github.com/pgshield/pgshield.git</code></pre>
-    <li>Navigate to the pgShield directory:</li>
-    <pre><code>cd pgshield</code></pre>
-    <li>Build pgShield:</li>
-    <pre><code>cargo build --release</code></pre>
-    <li>The compiled binary will be available at <code>target\release\pgshield.exe</code>.</li>
-</ol>
+<div id="documentation-content"></div>
 
-<h2>Optimizing PostgreSQL Infrastructure with pgShield</h2>
-<p>pgShield provides several features to optimize your PostgreSQL infrastructure:</p>
-<ul>
-    <li>Connection Pooling: pgShield maintains a pool of reusable database connections, reducing the overhead of establishing new connections for each request.</li>
-    <li>Prepared Statement Caching: pgShield caches prepared statements, eliminating the need to parse and prepare statements repeatedly.</li>
-    <li>Query Optimization: pgShield analyzes and optimizes SQL queries, improving query performance and reducing database load.</li>
-    <li>Load Balancing: pgShield distributes client connections across multiple PostgreSQL servers, ensuring optimal resource utilization and high availability.</li>
-</ul>
-<p>To optimize your PostgreSQL infrastructure using pgShield, follow these steps:</p>
-<ol>
-    <li>Install and configure pgShield on your server.</li>
-    <li>Update your application to connect to pgShield instead of directly connecting to PostgreSQL.</li>
-    <li>Configure pgShield's connection pooling, prepared statement caching, and query optimization settings according to your requirements.</li>
-    <li>Monitor the performance of your PostgreSQL infrastructure and fine-tune pgShield's configuration as needed.</li>
-</ol>
-<p>By leveraging pgShield's features, you can significantly enhance the performance, scalability, and reliability of your PostgreSQL infrastructure.</p>
+<script>
+    $(document).ready(function() {
+        // Load the initial documentation page
+        loadDocumentationPage('installation');
+
+        // Handle navigation menu clicks
+        $('nav ul li a').click(function(e) {
+            e.preventDefault();
+            var page = $(this).data('page');
+            loadDocumentationPage(page);
+        });
+
+        // Function to load documentation page content
+        function loadDocumentationPage(page) {
+            // Load the page content using $.ajax
+            $.ajax({
+                url: 'documentation/' + page + '.html',
+                dataType: 'html',
+                success: function(data) {
+                    $('#documentation-content').html(data);
+                },
+                error: function(xhr, status, error) {
+                    console.log('Error loading page: ' + error);
+                }
+            });
+        }
+    });
+</script>
