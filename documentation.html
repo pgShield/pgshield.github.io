@@ -1,69 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pgShield Documentation</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        /* Add your custom styles here */
-    </style>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="pgshield-logo.png" alt="pgShield Logo" width="30" height="30" class="d-inline-block align-top mr-2">
-                pgShield
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="documentation.html">Documentation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/yourusername/pgshield">GitHub</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<h1>pgShield Documentation</h1>
 
-    <div class="container mt-4">
-        <h1>pgShield Documentation</h1>
-        <p>Welcome to the pgShield documentation. Here you will find comprehensive guides and references to help you understand and utilize pgShield effectively.</p>
-        
-        <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="getting-started.html">Getting Started</a></li>
-            <li><a href="configuration.html">Configuration</a></li>
-            <li><a href="api-reference.html">API Reference</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-        </ul>
-        
-        <h2>Overview</h2>
-        <p>pgShield is a high-performance connection pooling and connection optimization system for PostgreSQL databases. 
-           It provides advanced features such as server gateway, connection pooling, prepared statement caching, query optimization, and efficient memory management.</p>
-        
-        <h2>Key Features</h2>
-        <ul>
-            <li>Gateway, access all postgresql servers at once, and connect only once for every server, also through rest api
-            <li>Connection pooling for efficient reuse of database connections</li>
-            <li>Prepared statement caching to reduce query parsing overhead</li>
-            <li>Query optimization techniques for improved performance</li>
-            <li>Asynchronous I/O for concurrent handling of client requests</li>
-            <li>Modular architecture for extensibility and maintainability</li>
-        </ul>
-    </div>
+<h2>Building and Installing pgShield</h2>
+<h3>Linux</h3>
+<ol>
+    <li>Clone the pgShield repository:</li>
+    <pre><code>git clone https://github.com/pgshield/pgshield.git</code></pre>
+    <li>Navigate to the pgShield directory:</li>
+    <pre><code>cd pgshield</code></pre>
+    <li>Build pgShield:</li>
+    <pre><code>cargo build --release</code></pre>
+    <li>The compiled binary will be available at <code>target/release/pgshield</code>.</li>
+</ol>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+<h3>Windows</h3>
+<ol>
+    <li>Install Rust from <a href="https://www.rust-lang.org/tools/install">https://www.rust-lang.org/tools/install</a>.</li>
+    <li>Clone the pgShield repository:</li>
+    <pre><code>git clone https://github.com/pgshield/pgshield.git</code></pre>
+    <li>Navigate to the pgShield directory:</li>
+    <pre><code>cd pgshield</code></pre>
+    <li>Build pgShield:</li>
+    <pre><code>cargo build --release</code></pre>
+    <li>The compiled binary will be available at <code>target\release\pgshield.exe</code>.</li>
+</ol>
+
+<h2>Optimizing PostgreSQL Infrastructure with pgShield</h2>
+<p>pgShield provides several features to optimize your PostgreSQL infrastructure:</p>
+<ul>
+    <li>Connection Pooling: pgShield maintains a pool of reusable database connections, reducing the overhead of establishing new connections for each request.</li>
+    <li>Prepared Statement Caching: pgShield caches prepared statements, eliminating the need to parse and prepare statements repeatedly.</li>
+    <li>Query Optimization: pgShield analyzes and optimizes SQL queries, improving query performance and reducing database load.</li>
+    <li>Load Balancing: pgShield distributes client connections across multiple PostgreSQL servers, ensuring optimal resource utilization and high availability.</li>
+</ul>
+<p>To optimize your PostgreSQL infrastructure using pgShield, follow these steps:</p>
+<ol>
+    <li>Install and configure pgShield on your server.</li>
+    <li>Update your application to connect to pgShield instead of directly connecting to PostgreSQL.</li>
+    <li>Configure pgShield's connection pooling, prepared statement caching, and query optimization settings according to your requirements.</li>
+    <li>Monitor the performance of your PostgreSQL infrastructure and fine-tune pgShield's configuration as needed.</li>
+</ol>
+<p>By leveraging pgShield's features, you can significantly enhance the performance, scalability, and reliability of your PostgreSQL infrastructure.</p>
